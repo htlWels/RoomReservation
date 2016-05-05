@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title>HTL Wels - Raumreservierungsystem</title>
+
+    <link href='./css/fullcalendar.css' rel='stylesheet' />
+    <link href='./css/fullcalendar.print.css' rel='stylesheet' media='print' />
+    <link href='./css/room.css' rel='stylesheet' />
+    <link href='js/jquery-timepicker/jquery.timepicker.css' rel="stylesheet" />
+    <link href='js/ui/custom/jquery-ui.min.css' rel='stylesheet' />
+    <link href='js/ui/themes/themes/ui-lightness/jquery-ui.css' rel='stylesheet' />
+    <link href='js/ui/themes/themes/ui-lightness/jquery.ui.theme.css' rel='stylesheet' />
+
+    <link href='images/font-awesome-4.6.1/css/font-awesome.min.css' rel='stylesheet' />
+    <link rel="stylesheet" href="js/jQuery.msgBox-master/styles/msgBoxLight.css" />
+
+    <script src="./js/jquery-1.js"></script>
+    <script src="./js/ui/custom/jquery-ui.min.js"></script>
+    <script src='./js/moment.min.js'></script>
+    <script src="./js/fullcalendar.js"></script>
+    <script src="./js/jquery-timepicker/jquery.timepicker.min.js"></script>
+    <script src="./js/lang-all.js"></script>
+    <script type='text/javascript' src='js/jQuery.msgBox-master/scripts/jquery.msgBox.js'></script>
+    <script src="./js/room.js"></script>
+
+
+
+
+</head>
+
+<body>
+
+    <div id='top'>
+
+        <div class='left'>
+            <table id="headerT">
+                <tr>
+                    <td style="width:7%" rowspan="2"><img src="images/logo.png" /></td>
+                    <td style="width:3%"> <i class="fa fa-calendar-minus-o fa-2x"></i></td>
+                    <td style="width:10%">
+                        <div id="theDate"></div>
+                    </td>
+                    <td style="width:25%"> <span class="he1">Raumreservierungssystem</span></td>
+                    <td style="width:3%"> <i class="fa fa-keyboard-o fa-2x"></i></td>
+                    <td style="width:12%">
+                        <select id='room-selector'></select>
+                    </td>
+                    <td style="width:3%"> <i class="fa fa-table fa-2x"></i></td>
+                    <td style="width:25%">(optional)&nbsp;
+                        <select id='seat-selector'></select>
+                    </td>
+
+                    <td style="width:12%" class="logon" id="logonRow"> Logon <a class="btn" href="logon"><i class="fa fa-sign-in fa-2x"></i></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="storeRight"></td>
+                    <td><span id="messages"></span></td>
+                    <td colspan="4" class="storeHint"> <span id="enterSys">Jede Seite muss extra gesichert werden.... </span> &nbsp;<i class="fa fa-chevron-right fa-1x"> </i><i class="fa fa-chevron-right fa-1x"> </i><i class="fa fa-chevron-right fa-1x"> </i><i class="fa fa-chevron-right fa-1x"> </i></td>
+
+
+
+                    <td class="showHide">
+                        <button id="store">Termine sichern</button>
+                    </td>
+
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class='right1'>
+            <span id='loading'>loading...</span>
+            <span id='script-warning'><code>php/get-events.php</code> must be running.</span>
+        </div>
+
+
+        <div id="logon" caption="Login">
+            <div>
+                <form method="post" action="">
+                    <table>
+                        <tr>
+                            <td>Username:</td>
+                            <td>
+                                <input style="width: 150px;" type="text" id="user" name="user" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Password:</td>
+                            <td>
+                                <input style="width: 150px;" id="password" type="password" name="password" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" align="right" valign="bottom">
+                                <div id="loginMessage" />
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+
+        <div id="dialog" title="Termin eintragen">
+            <form action="" method="post">
+                <div class="textfeld">
+                    <label>Text:</label>
+                    <input id="terminName" name="name" size=25 maxlength=30 type="text" />
+                </div>
+                <div class="textfeld1">
+                    <label>Von:</label>
+                    <input id="terminFrom" type="text" maxlenght="5" size="5" class="time" />
+                    <label>Bis:</label>
+                    <input id="terminTo" type="text" maxlenght="5" size="5" class="time" />
+                </div>
+                <!-- input id="submit" type="submit" value="Reservierung" -->
+            </form>
+        </div>
+
+        <div class='clear'></div>
+
+    </div>
+    <div id="seatOrder" title="Sitzordnung">
+        <img src="./images/sitzordnung.png" />
+	</div>
+   
+   
+   <div id='calendar'></div>
+
+    <!-- input id=" button " type="button " value="Open Dialog Form " -->
+  
+
+
+
+</body>
+
+</html>
